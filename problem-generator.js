@@ -3,12 +3,12 @@
 
   function createInterval(maxSize, tmin, tmax) {
     var start = _.random(tmin, tmax),
-        end = _.random(start + 1, start + maxSize);
+        end = _.random(start + 1, _.min([start + maxSize, tmax]));
 
     return {
       weight: Math.random(),
       start: start,
-      end: end < tmax ? end : tmax
+      end: end
     };
   }
 
